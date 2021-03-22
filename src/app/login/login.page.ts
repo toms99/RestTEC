@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ObjetosService } from '../services/objetos.service';
 
 @Component({
   selector: 'app-login',
@@ -8,13 +9,14 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private  router:  Router) { }
+  constructor(private  router:  Router, private objetos: ObjetosService) { }
 
   ngOnInit() {
   }
 
   login(form) {
     this.router.navigateByUrl('/menu/tabs/tab1');
+
   }
 
 }

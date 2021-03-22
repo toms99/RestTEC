@@ -8,18 +8,20 @@ import { Tab2Page } from "../tab2/tab2.page";
 })
 export class DataService {
 
+  // Esta es la lista que almacena lo que esta dentro del carrito
   private data = []
 
   constructor() { }
 
-  setData(nuevo) {
-    if (this.data.length == 0) { this.data.push(nuevo) } else {
+  // Aqui recibe platos para agregarlos al carrito conforme recibe
+  setData(platoEntrante) {
+    if (this.data.length == 0) { this.data.push(platoEntrante) } else {
       this.data.forEach(plato => {
-        if (plato.plato == nuevo.plato) {
+        if (plato.plato == platoEntrante.plato) {
           plato.cant += 1;
           console.log(plato.cant, 'salud')
         } else {
-          this.data.push(nuevo);
+          this.data.push(platoEntrante);
         }
       })
     }

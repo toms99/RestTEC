@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { ModalController, ToastController } from '@ionic/angular';
 import { DataService } from '../services/data.service';
 import { Tab2Page } from "../tab2/tab2.page";
+import { ObjetosService } from '../services/objetos.service';
 
 @Component({
   selector: 'app-tab1',
@@ -11,38 +12,14 @@ import { Tab2Page } from "../tab2/tab2.page";
 })
 export class Tab1Page {
 
+  menu = []
   constructor(private router: Router,
     private dataService: DataService,
     public toastController: ToastController,
-    public modalController: ModalController) { }
+    public modalController: ModalController,
+    private objetosService: ObjetosService) { this.menu = objetosService.getMenu()}
 
   
-  menu = [
-    {
-      plato: "Lentejas con platano maduro",
-      descripcion: "Deliciosas lentejas en sopa, con pimienta que le da cierto picor." ,
-      precio: "800",
-      calorias: "200",
-      tipo: "almuerzo",
-      cant: 1
-    },
-    {
-      plato: "Sopa azteca",
-      descripcion: "Una sopita tradicional de méxico a base de un caldo de tomate." ,
-      precio: "650",
-      calorias: "250",
-      tipo: "cena",
-      cant: 1
-    },
-    {
-      plato: "Cereal con leche",
-      descripcion: "Kelloggs con banano y leche deslactosada." ,
-      precio: "300",
-      calorias: "150",
-      tipo: "desayuno",
-      cant: 1
-    }
-  ]
 
   agregarCarrito(plato) {
     //console.log(plato)

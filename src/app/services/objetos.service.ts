@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { Menu } from '../objetos/menu';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ObjetosService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   Plato = {
     plato: "Lentejas con platano maduro",
@@ -58,8 +60,13 @@ export class ObjetosService {
     return this.menu;
   }
 
-  public addPlato(nuevoPlato) {
+  public addPlato(nuevoPlato) {    
     this.menu.push(nuevoPlato);
+  }
+
+  getLibreria() {
+    var Url = 'https/'
+    return this.http.get<Menu[]>(Url);
   }
 
 }
